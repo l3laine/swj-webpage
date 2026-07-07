@@ -7,3 +7,8 @@ build/
 .env
 .env.*
 !.env.example
+
+# Local Codex conversation artifacts
+.codex-global-AGENTS.staged
+docs/marks/
+docs/superpowers/
