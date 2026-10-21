@@ -105,7 +105,7 @@ def legacy_title(index: int, content: str) -> str:
     bold = re.search(r"<B>(.*?)</B>", content, flags=re.I | re.S)
     if bold:
         return strip_tags(bold.group(1))[:80]
-    return f"Aktualność {index}"
+    return ""
 
 
 def admin_posts() -> list[dict]:
@@ -180,10 +180,11 @@ def render_index(posts: list[dict]) -> str:
     for post in posts:
         thumb = post.get("thumbnail") or post["image"]
         thumb_html = f'<IMG SRC="{html.escape(thumb, quote=True)}" ALT="">' if thumb else '<SPAN></SPAN>'
+        title_html = f'<SPAN CLASS="news-list-title">{html.escape(post["title"])}</SPAN>' if post["title"] else ""
         rows.append(f"""       <A CLASS="news-list-row" HREF="{post['href']}">
         <SPAN CLASS="news-list-thumb">{thumb_html}</SPAN>
         <SPAN CLASS="news-list-text">
-         <SPAN CLASS="news-list-title">{html.escape(post['title'])}</SPAN>
+         {title_html}
          <SPAN CLASS="news-list-excerpt">{html.escape(post['excerpt'])}</SPAN>
         </SPAN>
        </A>""")
@@ -201,10 +202,11 @@ def render_index(posts: list[dict]) -> str:
 
 
 def render_detail(post: dict) -> str:
+    heading = f'<P ALIGN="center"><B>{html.escape(post["title"])}</B></P>' if post["title"] else ""
     return f"""<TABLE WIDTH="100%" HEIGHT="100%" CELLSPACING="0" CELLPADDING="0" border="0">
   <TR height="620">
    <TD VALIGN="top">
-     <P ALIGN="center"><B>{html.escape(post['title'])}</B></P>
+     {heading}
      <P ALIGN="center"><A CLASS="news-back-link" HREF="index.php%3Fid=2&amp;temat=0&amp;str=1&amp;cd=0.html">Powrót do aktualności</A></P>
      <FONT COLOR="#202020" SIZE="2">
 {post['content']}
