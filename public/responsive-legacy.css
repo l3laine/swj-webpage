@@ -1,0 +1,135 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  padding: 0 12px 18px;
+  overflow-x: hidden;
+}
+
+body > center > table:first-of-type,
+body > center > table:last-of-type {
+  width: min(760px, 100%) !important;
+  max-width: 100% !important;
+}
+
+table {
+  max-width: 100%;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a img[name^="but"] {
+  display: block;
+  width: 162px;
+  height: 25px;
+  max-width: none;
+}
+
+body[data-device="mobile"] {
+  padding-inline: 0;
+}
+
+@media (max-width: 760px) {
+  body {
+    padding-inline: 8px;
+  }
+
+  body > center > table:first-of-type {
+    width: 100% !important;
+  }
+
+  td[background="Bitmapy/gora.gif"] {
+    height: auto !important;
+    min-height: 120px;
+    background-size: cover;
+    background-position: center top;
+  }
+
+  td[class="data"],
+  .data {
+    min-width: 132px;
+    background: rgb(143 85 69 / 72%);
+  }
+}
+
+@media (max-width: 640px) {
+  body {
+    padding-inline: 0;
+  }
+
+  body > center > table:first-of-type {
+    width: 100% !important;
+  }
+
+  body > center > table:first-of-type > tbody,
+  body > center > table:first-of-type > tbody > tr,
+  body > center > table:first-of-type > tbody > tr > td {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  td[background="Bitmapy/gora.gif"] {
+    min-height: 112px;
+  }
+
+  td[class="adres"],
+  .adres {
+    padding: 8px 10px;
+    font-size: 11px !important;
+    line-height: 1.35;
+  }
+
+  a img[name^="but"] {
+    width: min(162px, 100%);
+    height: auto;
+    min-height: 25px;
+  }
+
+  td[class="td"],
+  .td {
+    padding: 10px 0;
+    font-size: 11px !important;
+    line-height: 1.35;
+  }
+
+  font[size="6"] {
+    font-size: clamp(34px, 10vw, 48px);
+  }
+
+  font[size="3"] {
+    font-size: 15px;
+    line-height: 1.45;
+  }
+
+  td[style*="font-family: arial; font-size:10pt"] {
+    height: auto !important;
+    min-height: 46px;
+    padding: 7px 10px;
+    font-size: 12px !important;
+    line-height: 1.25;
+  }
+
+  body > center > table:last-of-type {
+    display: none;
+  }
+}
+
+@media (max-width: 380px) {
+  td[background="Bitmapy/gora.gif"] {
+    min-height: 96px;
+  }
+
+  td[style*="font-family: arial; font-size:10pt"] {
+    font-size: 11px !important;
+  }
+}
