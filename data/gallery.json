@@ -1,0 +1,431 @@
+{
+  "sections": [
+    {
+      "id": "galeria-kosciol",
+      "name": "Kościół"
+    },
+    {
+      "id": "galeria-klasztor",
+      "name": "Klasztor"
+    },
+    {
+      "id": "galeria-wspolnota",
+      "name": "Wspólnota"
+    }
+  ],
+  "images": [
+    {
+      "id": "legacy-1",
+      "path": "Galeria/206.jpg",
+      "thumbnail": "Galeria/Miniatury/206.jpg",
+      "title": "Prezbiterium kościoła na \"Górce\" 2014 r.",
+      "section_id": "galeria-kosciol"
+    },
+    {
+      "id": "legacy-2",
+      "path": "Galeria/187.jpg",
+      "thumbnail": "Galeria/Miniatury/187.jpg",
+      "title": "Nowy ornamet na tabernakulum wykonany w 2013 r.",
+      "section_id": "galeria-kosciol"
+    },
+    {
+      "id": "legacy-3",
+      "path": "Galeria/188.jpg",
+      "thumbnail": "Galeria/Miniatury/188.jpg",
+      "title": "Nowy ornamet na tabernakulum wykonany w 2013 r.",
+      "section_id": "galeria-kosciol"
+    },
+    {
+      "id": "legacy-4",
+      "path": "Galeria/190.jpg",
+      "thumbnail": "Galeria/Miniatury/190.jpg",
+      "title": "Elementy zdobiące tabernakulum",
+      "section_id": "galeria-kosciol"
+    },
+    {
+      "id": "legacy-5",
+      "path": "Galeria/191.jpg",
+      "thumbnail": "Galeria/Miniatury/191.jpg",
+      "title": "Serce na wewnętrznej stronie drzwiczek tabernakulum",
+      "section_id": "galeria-kosciol"
+    },
+    {
+      "id": "legacy-6",
+      "path": "Galeria/189.jpg",
+      "thumbnail": "Galeria/Miniatury/189.jpg",
+      "title": "Elementy zdobiące tabernakulum",
+      "section_id": "galeria-kosciol"
+    },
+    {
+      "id": "legacy-7",
+      "path": "Galeria/192.jpg",
+      "thumbnail": "Galeria/Miniatury/192.jpg",
+      "title": "Prezbiterium w kościele sióstr wizytek 2013 r.",
+      "section_id": "galeria-kosciol"
+    },
+    {
+      "id": "legacy-8",
+      "path": "Galeria/193.jpg",
+      "thumbnail": "Galeria/Miniatury/193.jpg",
+      "title": "Prezbiterium w kościele sióstr wizytek 2013 r.",
+      "section_id": "galeria-kosciol"
+    },
+    {
+      "id": "legacy-9",
+      "path": "Galeria/194.jpg",
+      "thumbnail": "Galeria/Miniatury/194.jpg",
+      "title": "Figura Maryi Niepokalanej na placu kościelenym odnowiona w 2013 r.",
+      "section_id": "galeria-kosciol"
+    },
+    {
+      "id": "legacy-10",
+      "path": "Galeria/195.jpg",
+      "thumbnail": "Galeria/Miniatury/195.jpg",
+      "title": "Figura Maryi Niepokalanej na placu kościelenym odnowiona w 2013 r.",
+      "section_id": "galeria-kosciol"
+    },
+    {
+      "id": "legacy-11",
+      "path": "Galeria/197.jpg",
+      "thumbnail": "Galeria/Miniatury/197.jpg",
+      "title": "Plac przed kościołem sióstr wizytek 2013r.",
+      "section_id": "galeria-kosciol"
+    },
+    {
+      "id": "legacy-12",
+      "path": "Galeria/198.jpg",
+      "thumbnail": "Galeria/Miniatury/198.jpg",
+      "title": "Plac przed kościołem sióstr wizytek 2013r.",
+      "section_id": "galeria-kosciol"
+    },
+    {
+      "id": "legacy-13",
+      "path": "Galeria/1.jpg",
+      "thumbnail": "Galeria/Miniatury/1.jpg",
+      "title": "Krata chóru zakonnego w prezbiterium kościoła",
+      "section_id": "galeria-kosciol"
+    },
+    {
+      "id": "legacy-14",
+      "path": "Galeria/2.jpg",
+      "thumbnail": "Galeria/Miniatury/2.jpg",
+      "title": "Tabernakulum w kościele",
+      "section_id": "galeria-kosciol"
+    },
+    {
+      "id": "legacy-15",
+      "path": "Galeria/3.jpg",
+      "thumbnail": "Galeria/Miniatury/3.jpg",
+      "title": "Prezbiterium kościoła",
+      "section_id": "galeria-kosciol"
+    },
+    {
+      "id": "legacy-16",
+      "path": "Galeria/4.jpg",
+      "thumbnail": "Galeria/Miniatury/4.jpg",
+      "title": "Pierwszy kościół i klasztor wybudowane w latach 1901-1904",
+      "section_id": "galeria-kosciol"
+    },
+    {
+      "id": "legacy-17",
+      "path": "Galeria/6.jpg",
+      "thumbnail": "Galeria/Miniatury/6.jpg",
+      "title": "Budowa obecnego kościoła w 1948 r.",
+      "section_id": "galeria-kosciol"
+    },
+    {
+      "id": "legacy-18",
+      "path": "Galeria/7.jpg",
+      "thumbnail": "Galeria/Miniatury/7.jpg",
+      "title": "Ruiny pierwszego kościoła i klasztoru w 1944 r.",
+      "section_id": "galeria-kosciol"
+    },
+    {
+      "id": "legacy-19",
+      "path": "Galeria/13.jpg",
+      "thumbnail": "Galeria/Miniatury/13.jpg",
+      "title": "Prezbiterium kościoła",
+      "section_id": "galeria-kosciol"
+    },
+    {
+      "id": "legacy-20",
+      "path": "Galeria/14.jpg",
+      "thumbnail": "Galeria/Miniatury/14.jpg",
+      "title": "Obraz Matki Bożej Ostrobramskiej oraz figury Najśw. Serca Jezusa i Niepokalanego Serca Maryi",
+      "section_id": "galeria-kosciol"
+    },
+    {
+      "id": "legacy-21",
+      "path": "Galeria/12.jpg",
+      "thumbnail": "Galeria/Miniatury/12.jpg",
+      "title": "Siostra zakrystianka przy głównym wejściu do kościoła",
+      "section_id": "galeria-kosciol"
+    },
+    {
+      "id": "legacy-22",
+      "path": "Galeria/31.jpg",
+      "thumbnail": "Galeria/Miniatury/31.jpg",
+      "title": "Obraz Matki Bożej Ostrobramskiej",
+      "section_id": "galeria-kosciol"
+    },
+    {
+      "id": "legacy-23",
+      "path": "Galeria/32.jpg",
+      "thumbnail": "Galeria/Miniatury/32.jpg",
+      "title": "Prezbiterium kościoła",
+      "section_id": "galeria-kosciol"
+    },
+    {
+      "id": "legacy-24",
+      "path": "Galeria/33.jpg",
+      "thumbnail": "Galeria/Miniatury/33.jpg",
+      "title": "Fronton kościoła",
+      "section_id": "galeria-kosciol"
+    },
+    {
+      "id": "legacy-25",
+      "path": "Galeria/27.jpg",
+      "thumbnail": "Galeria/Miniatury/27.jpg",
+      "title": "Figura Maryi Niepokalanej na placu kościelnym",
+      "section_id": "galeria-kosciol"
+    },
+    {
+      "id": "legacy-26",
+      "path": "Galeria/28.jpg",
+      "thumbnail": "Galeria/Miniatury/28.jpg",
+      "title": "Widok kościoła od strony północnej",
+      "section_id": "galeria-kosciol"
+    },
+    {
+      "id": "legacy-27",
+      "path": "Galeria/23.jpg",
+      "thumbnail": "Galeria/Miniatury/23.jpg",
+      "title": "Mur klauzurowy w byłym klasztorze wizytek w Wilnie oraz kopuła dawnego kościoła",
+      "section_id": "galeria-kosciol"
+    },
+    {
+      "id": "legacy-28",
+      "path": "Galeria/46.jpg",
+      "thumbnail": "Galeria/Miniatury/46.jpg",
+      "title": "Widok z kościoła na chór zakonny",
+      "section_id": "galeria-kosciol"
+    },
+    {
+      "id": "legacy-29",
+      "path": "Galeria/24.jpg",
+      "thumbnail": "Galeria/Miniatury/24.jpg",
+      "title": "Prezbiterium kościoła",
+      "section_id": "galeria-kosciol"
+    },
+    {
+      "id": "legacy-30",
+      "path": "Galeria/50.jpg",
+      "thumbnail": "Galeria/Miniatury/50.jpg",
+      "title": "Figura Maryi Niepokalanej na placu kościelnym",
+      "section_id": "galeria-kosciol"
+    },
+    {
+      "id": "legacy-31",
+      "path": "Galeria/15.jpg",
+      "thumbnail": "Galeria/Miniatury/15.jpg",
+      "title": "Widok klasztoru z lotu ptaka",
+      "section_id": "galeria-klasztor"
+    },
+    {
+      "id": "legacy-32",
+      "path": "Galeria/16.jpg",
+      "thumbnail": "Galeria/Miniatury/16.jpg",
+      "title": "Widok klasztoru z lotu ptaka",
+      "section_id": "galeria-klasztor"
+    },
+    {
+      "id": "legacy-33",
+      "path": "Galeria/19.jpg",
+      "thumbnail": "Galeria/Miniatury/19.jpg",
+      "title": "Alejka w ogrodzie",
+      "section_id": "galeria-klasztor"
+    },
+    {
+      "id": "legacy-34",
+      "path": "Galeria/20.jpg",
+      "thumbnail": "Galeria/Miniatury/20.jpg",
+      "title": "Ogród i klasztor od strony południowej",
+      "section_id": "galeria-klasztor"
+    },
+    {
+      "id": "legacy-35",
+      "path": "Galeria/35.jpg",
+      "thumbnail": "Galeria/Miniatury/35.jpg",
+      "title": "Ogród klasztorny i kościół - widok od strony południowej",
+      "section_id": "galeria-klasztor"
+    },
+    {
+      "id": "legacy-36",
+      "path": "Galeria/57.jpg",
+      "thumbnail": "Galeria/Miniatury/57.jpg",
+      "title": "Klasztor, strona wschodnia",
+      "section_id": "galeria-klasztor"
+    },
+    {
+      "id": "legacy-37",
+      "path": "Galeria/54.jpg",
+      "thumbnail": "Galeria/Miniatury/54.jpg",
+      "title": "Kwiaty moreli",
+      "section_id": "galeria-klasztor"
+    },
+    {
+      "id": "legacy-38",
+      "path": "Galeria/55.jpg",
+      "thumbnail": "Galeria/Miniatury/55.jpg",
+      "title": "Klasztor",
+      "section_id": "galeria-klasztor"
+    },
+    {
+      "id": "legacy-39",
+      "path": "Galeria/56.jpg",
+      "thumbnail": "Galeria/Miniatury/56.jpg",
+      "title": "Fragmet alejki i lasku",
+      "section_id": "galeria-klasztor"
+    },
+    {
+      "id": "legacy-40",
+      "path": "Galeria/58.jpg",
+      "thumbnail": "Galeria/Miniatury/58.jpg",
+      "title": "Cmentarz sióstr wizytek",
+      "section_id": "galeria-klasztor"
+    },
+    {
+      "id": "legacy-41",
+      "path": "Galeria/8.jpg",
+      "thumbnail": "Galeria/Miniatury/8.jpg",
+      "title": "Moment składania ślubów wieczystych",
+      "section_id": "galeria-wspolnota"
+    },
+    {
+      "id": "legacy-42",
+      "path": "Galeria/9.jpg",
+      "thumbnail": "Galeria/Miniatury/9.jpg",
+      "title": "Siostra lezy krzyżem podczas ceremonii podczas Litanii do Wszystkich Świętych",
+      "section_id": "galeria-wspolnota"
+    },
+    {
+      "id": "legacy-43",
+      "path": "Galeria/10.jpg",
+      "thumbnail": "Galeria/Miniatury/10.jpg",
+      "title": "Siostry w chórze w czasie modlitwy brewiarzowej",
+      "section_id": "galeria-wspolnota"
+    },
+    {
+      "id": "legacy-44",
+      "path": "Galeria/11.jpg",
+      "thumbnail": "Galeria/Miniatury/11.jpg",
+      "title": "Podczas nauki śpiewu",
+      "section_id": "galeria-wspolnota"
+    },
+    {
+      "id": "legacy-45",
+      "path": "Galeria/39.jpg",
+      "thumbnail": "Galeria/Miniatury/39.jpg",
+      "title": "Nasza wspólnota w dniu Jubileuszu 100-lecia klasztoru u Jaśle",
+      "section_id": "galeria-wspolnota"
+    },
+    {
+      "id": "legacy-46",
+      "path": "Galeria/42.jpg",
+      "thumbnail": "Galeria/Miniatury/42.jpg",
+      "title": "Podczas rekreacji",
+      "section_id": "galeria-wspolnota"
+    },
+    {
+      "id": "legacy-47",
+      "path": "Galeria/41.jpg",
+      "thumbnail": "Galeria/Miniatury/41.jpg",
+      "title": "Siostry przy pracy",
+      "section_id": "galeria-wspolnota"
+    },
+    {
+      "id": "legacy-48",
+      "path": "Galeria/59.jpg",
+      "thumbnail": "Galeria/Miniatury/59.jpg",
+      "title": "Figurka Dzieciątka Jezus ze swoją malarką",
+      "section_id": "galeria-wspolnota"
+    },
+    {
+      "id": "legacy-49",
+      "path": "Galeria/34.jpg",
+      "thumbnail": "Galeria/Miniatury/34.jpg",
+      "title": "Ornat ręcznie haftowany i jego wykonawczyni",
+      "section_id": "galeria-wspolnota"
+    },
+    {
+      "id": "legacy-50",
+      "path": "Galeria/21.jpg",
+      "thumbnail": "Galeria/Miniatury/21.jpg",
+      "title": "Na modlitwie",
+      "section_id": "galeria-wspolnota"
+    },
+    {
+      "id": "legacy-51",
+      "path": "Galeria/40.jpg",
+      "thumbnail": "Galeria/Miniatury/40.jpg",
+      "title": "Przy komputerze",
+      "section_id": "galeria-wspolnota"
+    },
+    {
+      "id": "legacy-52",
+      "path": "Galeria/22.jpg",
+      "thumbnail": "Galeria/Miniatury/22.jpg",
+      "title": "Wśród kwiatów",
+      "section_id": "galeria-wspolnota"
+    },
+    {
+      "id": "legacy-53",
+      "path": "Galeria/25.jpg",
+      "thumbnail": "Galeria/Miniatury/25.jpg",
+      "title": "Chwila refleksji przy kapliczce",
+      "section_id": "galeria-wspolnota"
+    },
+    {
+      "id": "legacy-54",
+      "path": "Galeria/26.jpg",
+      "thumbnail": "Galeria/Miniatury/26.jpg",
+      "title": "Praca w ogrodzie",
+      "section_id": "galeria-wspolnota"
+    },
+    {
+      "id": "legacy-55",
+      "path": "Galeria/61.jpg",
+      "thumbnail": "Galeria/Miniatury/61.jpg",
+      "title": "Na spacerze",
+      "section_id": "galeria-wspolnota"
+    },
+    {
+      "id": "legacy-56",
+      "path": "Galeria/62.jpg",
+      "thumbnail": "Galeria/Miniatury/62.jpg",
+      "title": "Na modlitwie",
+      "section_id": "galeria-wspolnota"
+    },
+    {
+      "id": "legacy-57",
+      "path": "Galeria/94.jpg",
+      "thumbnail": "Galeria/Miniatury/94.jpg",
+      "title": "O. John Karondukadavil msfs, kapelan klasztoru w latach 2003-2009",
+      "section_id": "galeria-wspolnota"
+    },
+    {
+      "id": "legacy-58",
+      "path": "Galeria/95.jpg",
+      "thumbnail": "Galeria/Miniatury/95.jpg",
+      "title": "Siostry Wizytki z o. Johnem, kapelanem",
+      "section_id": "galeria-wspolnota"
+    },
+    {
+      "id": "legacy-59",
+      "path": "Galeria/96.jpg",
+      "thumbnail": "Galeria/Miniatury/96.jpg",
+      "title": "O.Hepnuni i O. John",
+      "section_id": "galeria-wspolnota"
+    }
+  ]
+}

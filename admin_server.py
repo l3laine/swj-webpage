@@ -16,6 +16,8 @@ from datetime import datetime, timezone
 from http import HTTPStatus
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
+from gallery import Gallery, LOCK as GALLERY_LOCK
+from gallery_admin import render_panel as render_gallery_panel
 from urllib.parse import parse_qs, quote, unquote, urlparse
 
 
@@ -137,6 +139,11 @@ class AdminState:
 class Handler(SimpleHTTPRequestHandler):
     state: AdminState
 
+    def end_headers(self):
+        if self.command in ("GET", "HEAD") and not self.path.startswith("/dodaj"):
+            self.send_header("Cache-Control", "no-store")
+        super().end_headers()
+
     def translate_path(self, path: str) -> str:
         parsed = urlparse(path)
         relative = unquote(parsed.path).lstrip("/") or "index.html"
@@ -144,6 +151,13 @@ class Handler(SimpleHTTPRequestHandler):
 
     def do_GET(self) -> None:
         parsed = urlparse(self.path)
+        if parsed.path in ("/dodaj/galeria", "/dodaj/galeria/"):
+            session = self.state.get_session(self.headers.get("Cookie"))
+            if session:
+                self.render_gallery(session)
+            else:
+                self.render_login()
+            return
         if parsed.path in ("/dodaj", "/dodaj/"):
             session = self.state.get_session(self.headers.get("Cookie"))
             if session:
@@ -165,6 +179,9 @@ class Handler(SimpleHTTPRequestHandler):
 
     def do_POST(self) -> None:
         parsed = urlparse(self.path)
+        if parsed.path.startswith("/dodaj/galeria/"):
+            self.handle_gallery()
+            return
         if parsed.path == "/dodaj/login":
             self.handle_login()
             return
@@ -172,6 +189,60 @@ class Handler(SimpleHTTPRequestHandler):
             self.handle_post()
             return
         self.send_error(HTTPStatus.NOT_FOUND)
+
+    def render_gallery(self, session, message=""):
+        self.send_html(render_gallery_panel(Gallery(ROOT).load(), session["csrf"], ADMIN_CSS, message))
+
+    def handle_gallery(self):
+        session = self.state.get_session(self.headers.get("Cookie"))
+        if not session:
+            self.redirect("/dodaj")
+            return
+        # Bound the whole request, including multipart overhead, before parsing it.
+        try:
+            length = int(self.headers.get("Content-Length", "0"))
+        except ValueError:
+            self.send_error(HTTPStatus.BAD_REQUEST)
+            return
+        if length <= 0 or length > MAX_IMAGE_BYTES + 64 * 1024:
+            self.send_error(HTTPStatus.REQUEST_ENTITY_TOO_LARGE)
+            return
+        form = cgi.FieldStorage(fp=self.rfile, headers=self.headers, environ={
+            "REQUEST_METHOD": "POST", "CONTENT_TYPE": self.headers.get("Content-Type", ""),
+            "CONTENT_LENGTH": str(length),
+        })
+        if form.getfirst("csrf") != session["csrf"]:
+            self.send_error(HTTPStatus.FORBIDDEN, "Invalid CSRF token")
+            return
+        action = urlparse(self.path).path.rsplit("/", 1)[-1]
+        gallery = Gallery(ROOT)
+        with GALLERY_LOCK:
+            try:
+                if action == "add":
+                    files = form["image"] if "image" in form else None
+                    if files is None or isinstance(files, list) or not getattr(files, "filename", ""):
+                        raise ValueError("Wybierz jedno zdjęcie.")
+                    gallery.add_image(form.getfirst("title", ""), form.getfirst("section_id", ""), files.file.read(MAX_IMAGE_BYTES + 1))
+                elif action == "edit":
+                    gallery.edit_image(form.getfirst("id", ""), form.getfirst("title", ""), form.getfirst("section_id", ""))
+                elif action == "delete":
+                    gallery.delete_images(form.getlist("ids"))
+                elif action == "section-add":
+                    gallery.add_section(form.getfirst("name", ""))
+                elif action == "section-delete":
+                    gallery.delete_section(form.getfirst("section_id", ""))
+                else:
+                    self.send_error(HTTPStatus.NOT_FOUND)
+                    return
+            except ValueError as error:
+                self.render_gallery(session, str(error))
+                return
+            try:
+                gallery.generate()
+            except (OSError, ValueError):
+                self.render_gallery(session, "Zmiany zapisano, ale przebudowanie galerii nie powiodło się. Uruchom python3 gallery.py.")
+                return
+        self.redirect("/dodaj/galeria")
 
     def read_urlencoded(self) -> dict[str, str]:
         length = int(self.headers.get("Content-Length", "0"))
@@ -324,6 +395,7 @@ class Handler(SimpleHTTPRequestHandler):
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Aktualności — panel</title>{ADMIN_CSS}</head>
 <body><main class="admin-shell">
  <header><h1>{heading}</h1><a href="/dodaj/wyloguj">Wyloguj</a></header>
+ <nav class="admin-tabs" aria-label="Zarządzanie treścią"><a href="/dodaj" aria-current="page">Aktualności</a><a href="/dodaj/galeria">Galeria</a></nav>
  <p><a href="/dodaj">Nowa aktualność</a></p>
  {notice}
  <form method="post" action="/dodaj/post" enctype="multipart/form-data" class="editor">
@@ -373,13 +445,26 @@ header { display: flex; align-items: center; justify-content: space-between; gap
 h1, h2 { margin: 0 0 18px; font-weight: 500; }
 form { display: grid; gap: 16px; }
 label { display: grid; gap: 6px; font-weight: 600; }
-input, textarea { font: inherit; border: 1px solid #cdbfae; border-radius: 6px; padding: 10px 12px; }
+input, textarea, select { font: inherit; border: 1px solid #cdbfae; border-radius: 6px; padding: 10px 12px; }
 textarea { resize: vertical; }
 button { justify-self: start; border: 0; border-radius: 999px; background: #1f5f8d; color: white; padding: 10px 20px; font: inherit; cursor: pointer; }
 a { color: #1f5f8d; }
 .notice { border: 1px solid #b8d5bf; background: #eef8f0; padding: 10px 12px; border-radius: 6px; }
 .error { border: 1px solid #dfb3a8; background: #fff0ed; padding: 10px 12px; border-radius: 6px; }
 ol { padding-left: 22px; }
+.admin-tabs { display: flex; gap: 12px; margin: 20px 0; border-bottom: 1px solid #e4d8c8; }
+.admin-tabs a { padding: 10px 16px; text-decoration: none; }
+.admin-tabs a[aria-current] { border-bottom: 3px solid #1f5f8d; font-weight: 700; }
+section { margin-top: 32px; }
+.gallery-admin-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 245px), 1fr)); gap: 20px; margin-top: 20px; }
+.gallery-admin-card { min-width: 0; border: 1px solid #e4d8c8; border-radius: 8px; padding: 14px; display: grid; gap: 14px; align-content: start; }
+.gallery-admin-card img { width: 100%; height: 150px; object-fit: contain; background: #f6f2ec; }
+.gallery-admin-card input, .gallery-admin-card select { width: 100%; box-sizing: border-box; }
+.gallery-choice { display: flex; align-items: center; font-size: 14px; }
+.gallery-choice input { width: auto; }
+.gallery-sections { list-style: none; padding: 0; }
+.gallery-sections li { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin: 12px 0; }
+button.danger { background: #8a332b; }
 </style>"""
 
 

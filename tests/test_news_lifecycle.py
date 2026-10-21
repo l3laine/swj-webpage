@@ -1,9 +1,10 @@
-import importlib.util, tempfile, shutil, threading, urllib.request, urllib.error, json
+import importlib.util, tempfile, shutil, threading, urllib.request, urllib.error, json, sys
 from pathlib import Path
 root=Path(__file__).resolve().parents[1]
 with tempfile.TemporaryDirectory() as tmp:
     target=Path(tmp)/'site'
     shutil.copytree(root,target,ignore=shutil.ignore_patterns('.git','.prototype_backups','.admin_backups','admin_config.json','.admin_password_for_local_testing.txt','__pycache__'))
+    sys.path.insert(0, str(target))
     spec=importlib.util.spec_from_file_location('admin',target/'admin_server.py'); m=importlib.util.module_from_spec(spec); spec.loader.exec_module(m)
     m.DATA.write_text('[]')
     m.Handler.state=m.AdminState({'session_secret':'test-only'})

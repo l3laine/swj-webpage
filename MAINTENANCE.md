@@ -84,3 +84,39 @@ Run the isolated HTTP lifecycle regression check (uses a temporary site copy):
 ```sh
 python3 tests/test_news_lifecycle.py
 ```
+
+## Gallery management
+
+The same admin login now exposes **Aktualności** (`/dodaj`) and **Galeria**
+(`/dodaj/galeria`) tabs. In the gallery, upload one image with a required title
+and an optional section, edit each existing title or section, delete individual
+images, or select several checkboxes and use **Usuń zaznaczone zdjęcia**.
+Deletion asks for confirmation. Add sections by name; deleting a section moves
+its images to **Bez sekcji** without removing them from the public gallery.
+
+- `data/gallery.json` is the gallery source of truth (sections and image entries).
+- `data/gallery_template.html` preserves the imported page layout.
+- `gallery.py` imports the original 59 entries once if JSON is missing, validates
+  images, makes thumbnails, and rebuilds all seven gallery URL variants.
+- `gallery_admin.py` renders the gallery management panel.
+- Uploaded photos go to `public/Galeria/uploads/`, with thumbnails under
+  `public/Galeria/Miniatury/`. JPG, PNG, GIF and WebP are accepted up to 4 MB;
+  output is normalized to JPEG, with 320×220 thumbnails.
+- Deleting an image removes the gallery entry and caption, retaining its file
+  because other legacy pages may reference it. There is no delete undo in the UI;
+  use the prototype backup to restore removed records.
+- All gallery writes require authentication and CSRF validation. Static pages
+  receive no-store headers in the local server to prevent stale preview content.
+
+Regenerate after manually changing JSON:
+
+```sh
+python3 gallery.py
+```
+
+Gallery regression checks use temporary copies; they do not change real data:
+
+```sh
+python3 tests/test_gallery.py
+python3 tests/test_gallery_http.py
+```
