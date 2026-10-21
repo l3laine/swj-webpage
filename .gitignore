@@ -12,3 +12,7 @@ build/
 .codex-global-AGENTS.staged
 docs/marks/
 docs/superpowers/
+.prototype_backups/
+admin_config.json
+.admin_password_for_local_testing.txt
+.admin_backups/

@@ -1,0 +1,7 @@
+{
+  "username": "admin",
+  "password_hash": "replace-with-output-from-setup_admin.py",
+  "session_secret": "replace-with-random-session-secret",
+  "host": "127.0.0.1",
+  "port": 8021
+}

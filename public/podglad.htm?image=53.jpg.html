@@ -1,0 +1,40 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=iso-8859-2">
+
+<TITLE>Podgląd</TITLE>
+<LINK REL="stylesheet" HREF="responsive-legacy.css">
+<SCRIPT SRC="responsive-legacy.js" defer></SCRIPT>
+</HEAD>
+
+<BODY>
+
+<SCRIPT language="javascript">
+<!-- 
+   self.moveTo(0,0)
+   self.resizeTo(screen.availWidth,screen.availHeight)
+//-->
+</SCRIPT>
+
+
+<SCRIPT language="javascript">
+<!--
+ function pokaz_zdjecie()
+ {
+  var image=(r=location.search.substr(1).match(/image=([^\&]+)/))?r[1]:'';
+  return "Galeria/"+image;
+ }
+//-->
+</SCRIPT>
+
+<CENTER>
+  <IMG NAME="img">
+</CENTER>
+
+
+<SCRIPT language="javascript">
+ document.img.src=pokaz_zdjecie();
+</SCRIPT>
+
+</BODY>
+</HTML>
